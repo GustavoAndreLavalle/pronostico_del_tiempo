@@ -1,0 +1,26 @@
+[2023-10-17T14:42:53.084+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pronostico_tiempo_dag1.crear_tabla_raw manual__2023-10-17T14:41:40.258028+00:00 [queued]>
+[2023-10-17T14:42:53.111+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pronostico_tiempo_dag1.crear_tabla_raw manual__2023-10-17T14:41:40.258028+00:00 [queued]>
+[2023-10-17T14:42:53.111+0000] {taskinstance.py:1361} INFO - Starting attempt 2 of 3
+[2023-10-17T14:42:53.218+0000] {taskinstance.py:1382} INFO - Executing <Task(PostgresOperator): crear_tabla_raw> on 2023-10-17 14:41:40.258028+00:00
+[2023-10-17T14:42:53.230+0000] {standard_task_runner.py:57} INFO - Started process 450 to run task
+[2023-10-17T14:42:53.238+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'pronostico_tiempo_dag1', 'crear_tabla_raw', 'manual__2023-10-17T14:41:40.258028+00:00', '--job-id', '130', '--raw', '--subdir', 'DAGS_FOLDER/tiempo1.py', '--cfg-path', '/tmp/tmpbh2r0cgs']
+[2023-10-17T14:42:53.247+0000] {standard_task_runner.py:85} INFO - Job 130: Subtask crear_tabla_raw
+[2023-10-17T14:42:53.369+0000] {task_command.py:416} INFO - Running <TaskInstance: pronostico_tiempo_dag1.crear_tabla_raw manual__2023-10-17T14:41:40.258028+00:00 [running]> on host f314a0c7455b
+[2023-10-17T14:42:53.684+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Gustavo Lavalle' AIRFLOW_CTX_DAG_ID='pronostico_tiempo_dag1' AIRFLOW_CTX_TASK_ID='crear_tabla_raw' AIRFLOW_CTX_EXECUTION_DATE='2023-10-17T14:41:40.258028+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-10-17T14:41:40.258028+00:00'
+[2023-10-17T14:42:53.695+0000] {sql.py:274} INFO - Executing: 
+CREATE TABLE IF NOT EXISTS RAW (
+    ciudad VARCHAR(50),
+    fecha_hora VARCHAR(50), 
+    pronostico_json JSONB
+);
+[2023-10-17T14:42:53.743+0000] {base.py:73} INFO - Using connection ID 'mi_conexion_postgres' for task execution.
+[2023-10-17T14:42:53.767+0000] {base.py:73} INFO - Using connection ID 'mi_conexion_postgres' for task execution.
+[2023-10-17T14:42:53.783+0000] {sql.py:418} INFO - Running statement: 
+CREATE TABLE IF NOT EXISTS RAW (
+    ciudad VARCHAR(50),
+    fecha_hora VARCHAR(50), 
+    pronostico_json JSONB
+);, parameters: None
+[2023-10-17T14:42:53.831+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=pronostico_tiempo_dag1, task_id=crear_tabla_raw, execution_date=20231017T144140, start_date=20231017T144253, end_date=20231017T144253
+[2023-10-17T14:42:53.907+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-10-17T14:42:53.977+0000] {taskinstance.py:2778} INFO - 1 downstream tasks scheduled from follow-on schedule check

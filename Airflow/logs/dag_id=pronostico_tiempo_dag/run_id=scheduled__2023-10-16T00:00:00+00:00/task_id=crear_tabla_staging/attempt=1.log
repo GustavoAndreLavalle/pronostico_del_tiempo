@@ -1,0 +1,34 @@
+[2023-10-17T16:27:12.803+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pronostico_tiempo_dag.crear_tabla_staging scheduled__2023-10-16T00:00:00+00:00 [queued]>
+[2023-10-17T16:27:12.828+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pronostico_tiempo_dag.crear_tabla_staging scheduled__2023-10-16T00:00:00+00:00 [queued]>
+[2023-10-17T16:27:12.830+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2023-10-17T16:27:12.882+0000] {taskinstance.py:1382} INFO - Executing <Task(PostgresOperator): crear_tabla_staging> on 2023-10-16 00:00:00+00:00
+[2023-10-17T16:27:12.888+0000] {standard_task_runner.py:57} INFO - Started process 2178 to run task
+[2023-10-17T16:27:12.909+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'pronostico_tiempo_dag', 'crear_tabla_staging', 'scheduled__2023-10-16T00:00:00+00:00', '--job-id', '211', '--raw', '--subdir', 'DAGS_FOLDER/tiempo1.py', '--cfg-path', '/tmp/tmpxajyr8to']
+[2023-10-17T16:27:12.928+0000] {standard_task_runner.py:85} INFO - Job 211: Subtask crear_tabla_staging
+[2023-10-17T16:27:13.244+0000] {task_command.py:416} INFO - Running <TaskInstance: pronostico_tiempo_dag.crear_tabla_staging scheduled__2023-10-16T00:00:00+00:00 [running]> on host f314a0c7455b
+[2023-10-17T16:27:13.957+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Gustavo Lavalle' AIRFLOW_CTX_DAG_ID='pronostico_tiempo_dag' AIRFLOW_CTX_TASK_ID='crear_tabla_staging' AIRFLOW_CTX_EXECUTION_DATE='2023-10-16T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-16T00:00:00+00:00'
+[2023-10-17T16:27:13.990+0000] {sql.py:274} INFO - Executing: 
+CREATE TABLE IF NOT EXISTS STAGING (
+    ciudad VARCHAR(50),
+    fecha_hora TIMESTAMP,  -- Cambia el tipo de datos a TIMESTAMP
+    temperatura_actual FLOAT,
+    temperatura_maxima FLOAT,
+    temperatura_minima FLOAT,
+    presion FLOAT,
+    humedad FLOAT
+);
+[2023-10-17T16:27:14.033+0000] {base.py:73} INFO - Using connection ID 'mi_conexion_postgres' for task execution.
+[2023-10-17T16:27:14.061+0000] {base.py:73} INFO - Using connection ID 'mi_conexion_postgres' for task execution.
+[2023-10-17T16:27:14.082+0000] {sql.py:418} INFO - Running statement: 
+CREATE TABLE IF NOT EXISTS STAGING (
+    ciudad VARCHAR(50),
+    fecha_hora TIMESTAMP,  -- Cambia el tipo de datos a TIMESTAMP
+    temperatura_actual FLOAT,
+    temperatura_maxima FLOAT,
+    temperatura_minima FLOAT,
+    presion FLOAT,
+    humedad FLOAT
+);, parameters: None
+[2023-10-17T16:27:14.117+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=pronostico_tiempo_dag, task_id=crear_tabla_staging, execution_date=20231016T000000, start_date=20231017T162712, end_date=20231017T162714
+[2023-10-17T16:27:14.262+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-10-17T16:27:14.454+0000] {taskinstance.py:2778} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,23 @@
+[2023-10-14T21:51:18.243+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pronostico_tiempo_dag1.insertar_datos manual__2023-10-14T21:50:56.795873+00:00 [queued]>
+[2023-10-14T21:51:18.286+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pronostico_tiempo_dag1.insertar_datos manual__2023-10-14T21:50:56.795873+00:00 [queued]>
+[2023-10-14T21:51:18.287+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2023-10-14T21:51:18.743+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): insertar_datos> on 2023-10-14 21:50:56.795873+00:00
+[2023-10-14T21:51:18.773+0000] {standard_task_runner.py:57} INFO - Started process 1254 to run task
+[2023-10-14T21:51:18.795+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'pronostico_tiempo_dag1', 'insertar_datos', 'manual__2023-10-14T21:50:56.795873+00:00', '--job-id', '42', '--raw', '--subdir', 'DAGS_FOLDER/tiempo1.py', '--cfg-path', '/tmp/tmp9fwienzv']
+[2023-10-14T21:51:18.818+0000] {standard_task_runner.py:85} INFO - Job 42: Subtask insertar_datos
+[2023-10-14T21:51:19.062+0000] {task_command.py:416} INFO - Running <TaskInstance: pronostico_tiempo_dag1.insertar_datos manual__2023-10-14T21:50:56.795873+00:00 [running]> on host f314a0c7455b
+[2023-10-14T21:51:19.599+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Gustavo Lavalle' AIRFLOW_CTX_DAG_ID='pronostico_tiempo_dag1' AIRFLOW_CTX_TASK_ID='insertar_datos' AIRFLOW_CTX_EXECUTION_DATE='2023-10-14T21:50:56.795873+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-10-14T21:50:56.795873+00:00'
+[2023-10-14T21:51:19.617+0000] {logging_mixin.py:151} INFO - aca pase
+[2023-10-14T21:51:19.654+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/tiempo1.py", line 77, in insertar_datos
+    temperatura = pronostico['main']['temp']
+TypeError: 'NoneType' object is not subscriptable
+[2023-10-14T21:51:19.686+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=pronostico_tiempo_dag1, task_id=insertar_datos, execution_date=20231014T215056, start_date=20231014T215118, end_date=20231014T215119
+[2023-10-14T21:51:19.732+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 42 for task insertar_datos ('NoneType' object is not subscriptable; 1254)
+[2023-10-14T21:51:19.782+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-10-14T21:51:19.855+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check
